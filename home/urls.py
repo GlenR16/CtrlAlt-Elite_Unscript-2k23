@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import IndexView,FaviconView,LoginView,SignupView,PasswordChangeView,DashboardView,FeedbackView,LogoutView,ProfileView,ChatView
+from .views import IndexView,FaviconView,LoginView,SignupView,PasswordChangeView,DashboardView,FeedbackView,LogoutView,ProfileView,ChatView, demo
 urlpatterns = [
     path("",IndexView.as_view(),name="index"), # Landing page that user will see.
     path("login/",LoginView.as_view(),name="login"), # User can login here.
@@ -11,4 +11,5 @@ urlpatterns = [
     path("feedback/",FeedbackView.as_view(),name="feedback"), # Feedback Page
     path("profile/",ProfileView.as_view(),name="profile"), # Profile Page
     path('favicon.ico', FaviconView), # For favicon
+    path('demo/', demo, name='demo'),
 ]

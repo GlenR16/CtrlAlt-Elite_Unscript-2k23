@@ -1,11 +1,44 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}
+<link rel='stylesheet' href="{% static 'style.css' %}">
 Dashboard
 {% endblock title %}
 {% block content %}
 <button class="buttons" id="1">First</button>
 <button class="buttons" id="2">Second</button>
+<html>
+        <div class="logo-container">
+    <div class="logo" onclick="document.querySelector('.chat-container').style.display = 'flex'">
+            <a><img src="{% static 'bot.png' %}" > </img> </a>
+        </div>
+    </div>
+    
+    <div>
+    <div class="chat-container">
+
+    <div class="user-info">
+        <div class="user-photo"></div>
+        <div class="user-name">User</div>
+        <div class="close-button"></div>
+    </div>
+    <div class="message-container" scrollToBottom()>
+        <div class="bot-message">
+        <!-- <div class="message-text">Hello, how can I help you today?</div> -->
+        </div>
+    </div>
+    <div class="typing-indicator">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+    </div>
+    <div class="input-container">
+        <input class="user-message-input" type="text" oninput="onInput()" onkeydown = "if (event.keyCode === 13){enter()}">
+        <button class="send-button" >Send</button>
+    </div>
+    </div>
+    <script src="{% static 'script.js' %}"></script>
+
 {{request.user.name}}
 {% endblock content %}
 {% block script %}

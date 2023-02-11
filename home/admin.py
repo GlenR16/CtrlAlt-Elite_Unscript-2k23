@@ -1,3 +1,4 @@
+
 from django.contrib import admin
 
 # Register your models here.
@@ -30,3 +31,7 @@ class UserAdmin(UserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email',)
+
+
+
+# admin.site.register(Event)

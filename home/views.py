@@ -1,3 +1,4 @@
+from .demo import test_calendar
 from django.shortcuts import render,redirect
 from django.views.generic.base import TemplateView,RedirectView,View
 from .forms import UserCreationForm,UserLoginForm,PasswordChangeForm
@@ -113,3 +114,9 @@ class DashboardView(LoginRequiredMixin,TemplateView):
 
 class FeedbackView(TemplateView,LoginRequiredMixin):
     template_name = "feedback.html"
+    
+
+def demo(request):
+    results = test_calendar()
+    context = {"results": results}
+    return render(request, 'demo.html', context)
