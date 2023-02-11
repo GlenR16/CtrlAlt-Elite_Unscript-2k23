@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Dashboard
+{% endblock title %}
+{% block content %}
+<button class="buttons" id="1">First</button>
+<button class="buttons" id="2">Second</button>
+{{request.user.name}}
+{% endblock content %}
+{% block script %}
+<script src="{% static 'js.cookie.min.js' %}"></script>
+<script src="{% static 'dashboard.js' %}"></script>
+{% endblock script %}
