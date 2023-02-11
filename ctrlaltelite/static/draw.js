@@ -18,7 +18,11 @@ new Chart("myChart", {
     datasets: [{
       pointRadius: 4,
       pointBackgroundColor: "rgb(0,0,255)",
-      data: xyValues
+      data: xyValues,
+      fill: false,
+      borderColor: '#2196f3', // Add custom color border (Line)
+      backgroundColor: '#2196f3', // Add custom color background (Points and Fill)
+      borderWidth: 1
     }]
   },
   options: {
@@ -28,4 +32,5 @@ new Chart("myChart", {
       yAxes: [{ticks: {min: 6, max:16}}],
     }
   }
+  
 });
