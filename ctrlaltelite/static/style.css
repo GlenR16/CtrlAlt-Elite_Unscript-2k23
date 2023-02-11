@@ -300,15 +300,26 @@ h2 small {
     cursor: pointer;
 }
 
+.widget2 {
+    margin-left: 50%;
+
+    display: flexbox;
+    flex-direction: column;
+    background-color: #e9ecef;
+    /* justify-content: right; */
+}
+
 .wrapper {
     background-color: #fff;
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
     position: relative;
-    margin-left:-480px;
+    margin-top: 10%;
+    padding-bottom: 40px;
+    /* margin-left:-480px;
     margin-top: 330px;
     margin-bottom:580px;
     padding-top: -20px;
-    padding-bottom: 50px;
+    padding-bottom: 50px; */
     max-width:fit-content;
     max-height: fit-content;
     border-radius: 5px;
@@ -329,14 +340,18 @@ h2 small {
     box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.2);
     max-width: 400px;
     padding: 40px;
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 17px;
     /* padding-top: 80px; */
-    border-left: 0px;
+    /* border-left: 0px;
     margin-left: 230px;
     margin-top: 17px;
     border-top: 70px;
-    border-radius: 5px;
+    border-radius: 5px; */
     /* left:50%; */
 }
+
 
 
 
