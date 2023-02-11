@@ -5,10 +5,99 @@
 Dashboard
 {% endblock title %}
 {% block content %}
-<button class="buttons" id="1">First</button>
-<button class="buttons" id="2">Second</button>
+<!-- <button class="buttons" id="1">First</button>
+<button class="buttons" id="2">Second</button> -->
 <html>
-        <div class="logo-container">
+       
+
+<!-- table -->
+<div class="container">
+  <!-- <div class="widget1"> -->
+  <ul class="responsive-table">
+    <li class="table-header">
+      <div class="col col-1">ID</div>
+      <div class="col col-2">Images</div>
+      <div class="col col-3">Confidence</div>
+      <div class="col col-4">Category</div>
+      <!-- <div class="col col-1">Amount</div> -->
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="ID">1</div>
+      <div class="col col-2" data-label="Images">wfubouwef</div>
+      <div class="col col-3" data-label="Confidence">93</div>
+      <div class="col col-4" data-label="Category">Best</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="ID">2</div>
+      <div class="col col-2" data-label="Images">jbjladfvads</div>
+      <div class="col col-3" data-label="Confidence">98</div>
+      <div class="col col-4" data-label="Category">Moderate</div>
+    </li><li class="table-row">
+      <div class="col col-1" data-label="ID">3</div>
+      <div class="col col-2" data-label="Images">riufvbes</div>
+      <div class="col col-3" data-label="Confidence">97</div>
+      <div class="col col-4" data-label="Category">Good</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="ID">2</div>
+      <div class="col col-2" data-label="Images">jbjladfvads</div>
+      <div class="col col-3" data-label="Confidence">98</div>
+      <div class="col col-4" data-label="Category">Moderate</div>
+    </li><li class="table-row">
+      <div class="col col-1" data-label="ID">3</div>
+      <div class="col col-2" data-label="Images">riufvbes</div>
+      <div class="col col-3" data-label="Confidence">97</div>
+      <div class="col col-4" data-label="Category">Good</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="ID">2</div>
+      <div class="col col-2" data-label="Images">jbjladfvads</div>
+      <div class="col col-3" data-label="Confidence">98</div>
+      <div class="col col-4" data-label="Category">Moderate</div>
+    </li><li class="table-row">
+      <div class="col col-1" data-label="ID">3</div>
+      <div class="col col-2" data-label="Images">riufvbes</div>
+      <div class="col col-3" data-label="Confidence">97</div>
+      <div class="col col-4" data-label="Category">Good</div>
+    </li>
+    <li class="table-row">
+      <div class="col col-1" data-label="ID">2</div>
+      <div class="col col-2" data-label="Images">jbjladfvads</div>
+      <div class="col col-3" data-label="Confidence">98</div>
+      <div class="col col-4" data-label="Category">Moderate</div>
+    </li><li class="table-row">
+      <div class="col col-1" data-label="ID">3</div>
+      <div class="col col-2" data-label="Images">riufvbes</div>
+      <div class="col col-3" data-label="Confidence">97</div>
+      <div class="col col-4" data-label="Category">Good</div>
+    </li>
+    <div id="pagination">
+  <button id="previous">Previous</button>
+  <button id="next">Next</button>
+</div>
+  </ul>
+  <!-- </div> -->
+
+  <div class="widget2">
+  <canvas id="myChart"></canvas>
+  </div>
+
+  <!-- <div class="widget3"> -->
+  <div class="wrapper">
+			<div class="container good" data-size="130" data-value="88" data-arrow="up">
+			</div>
+			
+			<div class="container moderate" data-size="130" data-value="45" data-arrow="up">
+			</div>
+			
+			<div class="container bad" data-size="130" data-value="7" data-arrow="up">
+			</div>
+		</div>
+    <!-- </div> -->
+</div>
+
+
+ <div class="logo-container">
     <div class="logo" onclick="document.querySelector('.chat-container').style.display = 'flex'">
             <a><img src="{% static 'bot.png' %}" > </img> </a>
         </div>
@@ -37,9 +126,17 @@ Dashboard
         <button class="send-button" >Send</button>
     </div>
     </div>
-    <script src="{% static 'script.js' %}"></script>
 
-{{request.user.name}}
+
+<script
+src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+    <script src="{% static 'script.js' %}"></script>
+    <script src="{% static 'pagination.js' %}"></script>
+    <script src="{% static 'draw.js' %}"></script>
+    <script src="{% static 'circle.js' %}"></script>
+
+<!-- {{request.user.name}} -->
 {% endblock content %}
 {% block script %}
 <script src="{% static 'js.cookie.min.js' %}"></script>
