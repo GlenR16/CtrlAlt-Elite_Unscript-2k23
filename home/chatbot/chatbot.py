@@ -64,6 +64,7 @@ def message(message):
 def predict_class(sentence):
   bow = bag_of_words(sentence)
   res = model.predict(np.array([bow]))[0]
+  print(res)
   result = []
   m = res[0]
   ind = 0
