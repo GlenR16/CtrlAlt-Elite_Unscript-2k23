@@ -5,7 +5,7 @@ const previous = document.querySelector("#previous");
 const next = document.querySelector("#next");
 
 let currentPage = 1;
-const rowsPerPage = 5;
+const rowsPerPage = 3;
 
 function showPage() {
   const startRow = (currentPage - 1) * rowsPerPage;
@@ -20,7 +20,10 @@ function showPage() {
     }
   }
 }
-
+if (rows.length < 4){
+  pagination.style.display = "none";
+}
+if(pagination){
 pagination.addEventListener("click", function(event) {
   if (event.target === previous) {
     currentPage--;
@@ -29,6 +32,6 @@ pagination.addEventListener("click", function(event) {
   }
 
   showPage();
-});
+});};
 
 showPage();

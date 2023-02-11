@@ -36,7 +36,7 @@ Dial.prototype.createDefs = function() {
     var linearGradient = document.createElementNS("http://www.w3.org/2000/svg", "linearGradient");
     linearGradient.setAttribute('id', 'gradient');
     var stop1 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
-    stop1.setAttribute('stop-color', '#6E4AE2');
+    stop1.setAttribute('stop-color', '#0A2647');
     stop1.setAttribute('offset', '0%');
     linearGradient.appendChild(stop1);
     var stop2 = document.createElementNS("http://www.w3.org/2000/svg", "stop");
@@ -88,7 +88,7 @@ Dial.prototype.createText = function() {
     text.setAttribute('y', (this.size / 2) + fontSize / 4);
     text.setAttribute('font-family', 'Century Gothic, Lato');
     text.setAttribute('font-size', fontSize);
-    text.setAttribute('fill', '#78F8EC');
+    text.setAttribute('fill', '#0A2647');
     text.setAttribute('text-anchor', 'middle');
     var tspanSize = fontSize / 3;
     text.innerHTML = 0 + '<tspan font-size="' + tspanSize + '" dy="' + -tspanSize * 1.2 + '">%</tspan>';
@@ -112,7 +112,7 @@ Dial.prototype.createArrow = function() {
     var arrowDOffset =  m * (arrowSize / 1.5);
     var arrow = document.createElementNS("http://www.w3.org/2000/svg", "path");
     arrow.setAttribute('d', 'M 0 0 ' + arrowSize + ' 0 ' + arrowSize / 2 + ' ' + arrowDOffset + ' 0 0 Z');
-    arrow.setAttribute('fill', '#97F8F0');
+    arrow.setAttribute('fill', '#0A2647');
     arrow.setAttribute('opacity', '0.6');
     arrow.setAttribute('transform', 'translate(' + arrowPosX + ',' + arrowPosY + ')');
     this.svg.appendChild(arrow);
@@ -178,14 +178,13 @@ var dial = new Dial(containers[0]);
 dial.animateStart();
 
 
-
 //moderate chart 
-var containers = document.getElementsByClassName("moderate");
-var dial = new Dial(containers[0]);
+var containers1 = document.getElementsByClassName("moderate");
+var dial = new Dial(containers1[0]);
 dial.animateStart();
 
 
-//bad chart  
-var containers = document.getElementsByClassName("bad");
-var dial = new Dial(containers[0]);
+//poor chart  
+var containers2 = document.getElementsByClassName("poor");
+var dial = new Dial(containers2[0]);
 dial.animateStart();

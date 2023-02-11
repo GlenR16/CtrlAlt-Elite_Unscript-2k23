@@ -1,145 +1,138 @@
-{% extends 'base.html' %}
 {% load static %}
-{% block title %}
-<link rel='stylesheet' href="{% static 'style.css' %}">
-Dashboard
-{% endblock title %}
-{% block content %}
-<!-- <button class="buttons" id="1">First</button>
-<button class="buttons" id="2">Second</button> -->
-<html>
-       
-
-<!-- table -->
-<div class="container">
-  <!-- <div class="widget1"> -->
-  <ul class="responsive-table">
-    <li class="table-header">
-      <div class="col col-1">ID</div>
-      <div class="col col-2">Images</div>
-      <div class="col col-3">Confidence</div>
-      <div class="col col-4">Category</div>
-      <!-- <div class="col col-1">Amount</div> -->
-    </li>
-    <li class="table-row">
-      <div class="col col-1" data-label="ID">1</div>
-      <div class="col col-2" data-label="Images">wfubouwef</div>
-      <div class="col col-3" data-label="Confidence">93</div>
-      <div class="col col-4" data-label="Category">Best</div>
-    </li>
-    <li class="table-row">
-      <div class="col col-1" data-label="ID">2</div>
-      <div class="col col-2" data-label="Images">jbjladfvads</div>
-      <div class="col col-3" data-label="Confidence">98</div>
-      <div class="col col-4" data-label="Category">Moderate</div>
-    </li><li class="table-row">
-      <div class="col col-1" data-label="ID">3</div>
-      <div class="col col-2" data-label="Images">riufvbes</div>
-      <div class="col col-3" data-label="Confidence">97</div>
-      <div class="col col-4" data-label="Category">Good</div>
-    </li>
-    <li class="table-row">
-      <div class="col col-1" data-label="ID">2</div>
-      <div class="col col-2" data-label="Images">jbjladfvads</div>
-      <div class="col col-3" data-label="Confidence">98</div>
-      <div class="col col-4" data-label="Category">Moderate</div>
-    </li><li class="table-row">
-      <div class="col col-1" data-label="ID">3</div>
-      <div class="col col-2" data-label="Images">riufvbes</div>
-      <div class="col col-3" data-label="Confidence">97</div>
-      <div class="col col-4" data-label="Category">Good</div>
-    </li>
-    <li class="table-row">
-      <div class="col col-1" data-label="ID">2</div>
-      <div class="col col-2" data-label="Images">jbjladfvads</div>
-      <div class="col col-3" data-label="Confidence">98</div>
-      <div class="col col-4" data-label="Category">Moderate</div>
-    </li><li class="table-row">
-      <div class="col col-1" data-label="ID">3</div>
-      <div class="col col-2" data-label="Images">riufvbes</div>
-      <div class="col col-3" data-label="Confidence">97</div>
-      <div class="col col-4" data-label="Category">Good</div>
-    </li>
-    <li class="table-row">
-      <div class="col col-1" data-label="ID">2</div>
-      <div class="col col-2" data-label="Images">jbjladfvads</div>
-      <div class="col col-3" data-label="Confidence">98</div>
-      <div class="col col-4" data-label="Category">Moderate</div>
-    </li><li class="table-row">
-      <div class="col col-1" data-label="ID">3</div>
-      <div class="col col-2" data-label="Images">riufvbes</div>
-      <div class="col col-3" data-label="Confidence">97</div>
-      <div class="col col-4" data-label="Category">Good</div>
-    </li>
-    <div id="pagination">
-  <button id="previous">Previous</button>
-  <button id="next">Next</button>
-</div>
-  </ul>
-  <!-- </div> -->
-
-  <div class="widget2">
-  <canvas id="myChart"></canvas>
-  
-
-  <!-- <div class="widget3"> -->
-  <div class="wrapper">
-			<div class="container good" data-size="130" data-value="88" data-arrow="up">
-			</div>
-			
-			<div class="container moderate" data-size="130" data-value="45" data-arrow="up">
-			</div>
-			
-			<div class="container bad" data-size="130" data-value="7" data-arrow="up">
-			</div>
-		</div>
-    </div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href="{% static 'style.css' %}">
+  <title>Dashboard</title>
+</head>
+<body>
+  <div class="container">
+    <!-- <div class="widget1"> -->
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">ID</div>
+        <div class="col col-2">Images</div>
+        <div class="col col-3">Confidence</div>
+        <div class="col col-4">Category</div>
+        <!-- <div class="col col-1">Amount</div> -->
+      </li>
+      <script>
+        var xyValues = [];
+        var yValues = [];
+      </script>
+      {% for image in Output %}
+      <script>
+        xyValues.push({{image.1}});
+        yValues.push({{forloop.counter}});
+      </script>
+      <li class="table-row">
+        <div class="col col-1" data-label="ID">{{forloop.counter}}</div>
+        <div class="col col-2" data-label="Images">{{image.2}}</div>
+        <div class="col col-3" data-label="Confidence">{{image.1}}</div>
+        <div class="col col-4" data-label="Category">{{image.0}}</div>
+      </li>
+      {% endfor %}
+      <div id="pagination">
+        <button id="previous">Previous</button>
+        <button id="next">Next</button>
+      </div>
+    </ul>
     <!-- </div> -->
-</div>
-
-
- <div class="logo-container">
-    <div class="logo" onclick="document.querySelector('.chat-container').style.display = 'flex'">
-            <a><img src="{% static 'bot.png' %}" > </img> </a>
-        </div>
-    </div>
+  
+    <div class="widget2">
+    <canvas id="myChart"></canvas>
     
-    <div>
-    <div class="chat-container">
-
-    <div class="user-info">
-        <div class="user-photo"></div>
-        <div class="user-name">User</div>
-        <div class="close-button"></div>
+  
+    <!-- <div class="widget3"> -->
+    <div class="wrapper">
+      <div id="cgood" class='container good' data-size="130" data-value="{{good}}" data-arrow="up">
+        <p>Good</P>
+      </div>
+      <div id="cmoderate" class='container moderate' data-size="130" data-value="{{moderate}}" data-arrow="up">
+        <p>Moderate</P>
+      </div>
+      <div id="cpoor" class='container poor' data-size="130" data-value="{{poor}}" data-arrow="up">
+        <p>Poor</P>
+      </div>
+      </div>
+      </div>
+      <!-- </div> -->
+  </div>
+  
+  
+   <div class="logo-container">
+      <div class="logo" onclick="document.querySelector('.chat-container').style.display = 'flex'">
+              <a><img src="{% static 'bot.png' %}" > </img> </a>
+          </div>
+      </div>
+      
+      <div>
+      <div class="chat-container">
+  
+      <div class="user-info">
+          <div class="user-photo"></div>
+          <div class="user-name">{{request.user.name}}</div>
+          <div class="close-button"></div>
+      </div>
+      <div class="message-container" scrollToBottom()>
+          <div class="bot-message">
+          <!-- <div class="message-text">Hello, how can I help you today?</div> -->
+          </div>
+      </div>
+      <div class="typing-indicator">
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+          <div class="typing-dot"></div>
+      </div>
+      <div class="input-container">
+          <input class="user-message-input" type="text" oninput="onInput()" onkeydown = "if (event.keyCode === 13){enter()}">
+          <button class="send-button" >Send</button>
+      </div>
     </div>
-    <div class="message-container" scrollToBottom()>
-        <div class="bot-message">
-        <!-- <div class="message-text">Hello, how can I help you today?</div> -->
-        </div>
-    </div>
-    <div class="typing-indicator">
-        <div class="typing-dot"></div>
-        <div class="typing-dot"></div>
-        <div class="typing-dot"></div>
-    </div>
-    <div class="input-container">
-        <input class="user-message-input" type="text" oninput="onInput()" onkeydown = "if (event.keyCode === 13){enter()}">
-        <button class="send-button" >Send</button>
-    </div>
-    </div>
-
-
-<script
-src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+  </div>
+  
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+</script>
+<script type="text/javascript">
+  console.log(xyValues);
+  new Chart("myChart", {
+    type: "bar",
+    data: {
+      labels: yValues,
+      datasets: [{
+        barPercentage: 0.5,
+        barThickness: 24,
+        maxBarThickness: 24,
+        minBarLength: 6,
+        data: xyValues,
+        backgroundColor: '#2196f3',
+      }]
+    },
+    options: {
+      plugins: {legend: false,},
+    },
+  });
+</script>
+<script>
+      {% if good == 0 %}
+        document.getElementById("cgood").style.display = "none";
+      {% endif %}
+      {% if moderate == 0 %}
+        document.getElementById("cmoderate").style.display = "none";
+      {% endif %}
+      {% if poor == 0 %}
+        document.getElementById("cpoor").style.display = "none";
+      {% endif %}
 </script>
     <script src="{% static 'script.js' %}"></script>
     <script src="{% static 'pagination.js' %}"></script>
-    <script src="{% static 'draw.js' %}"></script>
+    
     <script src="{% static 'circle.js' %}"></script>
-
-<!-- {{request.user.name}} -->
-{% endblock content %}
-{% block script %}
-<script src="{% static 'js.cookie.min.js' %}"></script>
-<script src="{% static 'dashboard.js' %}"></script>
-{% endblock script %}
+    <script src="{% static 'js.cookie.min.js' %}"></script>
+    <script src="{% static 'dashboard.js' %}"></script>
+</html>
+       

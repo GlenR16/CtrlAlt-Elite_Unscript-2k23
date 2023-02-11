@@ -199,7 +199,7 @@ body {
 
 .container {
     max-width: 490px;
-    margin-left: 20px;
+    margin-left: 5%;
     margin-top: 50px;
     /* margin-right: auto; */
     padding-left: 10px;
@@ -226,6 +226,8 @@ h2 small {
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;
+    margin-right: 20%;
+    
     
 }
 
@@ -294,15 +296,14 @@ h2 small {
 #next {
     padding: 8px 16px;
     background-color: lightgray;
-    justify-self: center;
-    margin-left: auto;
+    /* justify-self: center; */
+    margin-left: 40%;
     border: none;
     cursor: pointer;
 }
 
 .widget2 {
-    margin-left: 50%;
-
+    margin-left: 60%;
     display: flexbox;
     flex-direction: column;
     background-color: #e9ecef;
@@ -315,15 +316,20 @@ h2 small {
     position: relative;
     margin-top: 10%;
     padding-bottom: 40px;
+    padding-right: 40px;
+    padding-left: 10px;
     /* margin-left:-480px;
     margin-top: 330px;
     margin-bottom:580px;
     padding-top: -20px;
     padding-bottom: 50px; */
-    max-width:fit-content;
-    max-height: fit-content;
+    /* max-width:fit-content;
+    max-height: fit-content; */
+    width: auto;
+    height: auto;
     border-radius: 5px;
     display: flex;
+    justify-content: center;
     /* overflow-x: hidden; */
     /* flex-direction: row; */
 }

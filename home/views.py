@@ -9,18 +9,26 @@ from .chatbot.chatbot import message as MessageChatBot
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
-
+from .assessment.assess import assessment
 # Create your views here.
 FaviconView = RedirectView.as_view(url='/static/favicon.ico', permanent=True)
 
 class IndexView(TemplateView):
     template_name = "index.html"
+    
     def post(self,request):
-        for image in request.FILES.getlist("file"):
-            print(type(image))
-        out = ["GOOD","BAD"]
-        confid = ["95.01","76.4"]
-        return HttpResponse(request.FILES)
+        prediction = []
+        confidence = []
+        files = request.FILES.getlist("file")
+        for image in files:
+            p,c = assessment(image)
+            prediction.append(p)
+            confidence.append(c)            
+        out = zip(prediction,confidence,files)
+        good = (prediction.count("Good")*100)/len(files)
+        moderate = (prediction.count("Moderate")*100)/len(files)
+        poor = (prediction.count("Poor")*100)/len(files)
+        return render(request,"dashboard.html",{"Output":out,"good":good,"moderate":moderate,"poor":poor,"totalfiles":len(files)})
 
 class LogoutView(RedirectView):
     permanent = True
@@ -35,13 +43,18 @@ class LoginView(TemplateView):
     template_name = "authentication/login.html"
 
     def post(self, request, *args, **kwargs):
-            form = UserLoginForm(data=request.POST)
-            if form.is_valid():
+            form1 = UserLoginForm(data=request.POST)
+            form2 = UserCreationForm(request.POST)
+            if form1.is_valid():
                 user = authenticate(request,email=request.POST.get("username",""),password=request.POST.get("password",""))
                 login(request,user)
                 return redirect("/dashboard")
+            elif form2.is_valid():
+                user = form.save()
+                login(request,user)
+                return redirect("/dashboard")
             else:
-                return self.render_to_response({"form":form})
+                return self.render_to_response({"form1":form1,"form2":form2})
 
     def get(self, request, *args, **kwargs):
         if request.user.is_authenticated:
@@ -50,39 +63,10 @@ class LoginView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["form"] = UserLoginForm()
+        context["form1"] = UserLoginForm()
+        context["form2"] = UserCreationForm()
         return context
 
-class SignupView(TemplateView):
-    template_name = "authentication/signup.html"
-
-    def post(self, request, *args, **kwargs):
-        form = UserCreationForm(request.POST)
-        if form.is_valid():
-            user = form.save()
-            login(request,user)
-            return redirect("/dashboard")
-        else:
-            return self.render_to_response({"form":form})
-
-    def get(self, request, *args, **kwargs):
-        if request.user.is_authenticated:
-            return redirect("/dashboard/")
-        return super().get(request, *args, **kwargs)
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["form"] = UserCreationForm()
-        return context
-
-class ProfileView(LoginRequiredMixin,TemplateView):
-    template_name = "profile.html"
-
-    login_url = '/login'
-    redirect_field_name = 'redirect_to'
-
-    def get_context_data(self, **kwargs):
-        return super().get_context_data(**kwargs)
 
 @csrf_exempt
 def ChatView(request):
@@ -118,11 +102,3 @@ class DashboardView(LoginRequiredMixin,TemplateView):
         context = super().get_context_data(**kwargs)
         return context
 
-class FeedbackView(TemplateView,LoginRequiredMixin):
-    template_name = "feedback.html"
-    
-
-def demo(request):
-    results = test_calendar()
-    context = {"results": results}
-    return render(request, 'demo.html', context)
