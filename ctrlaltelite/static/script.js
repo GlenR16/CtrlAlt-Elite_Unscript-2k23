@@ -78,7 +78,11 @@ sendButton.addEventListener('click', function () {
     // simulate a chatbot reply
     if (userMessage.value.length > 0) {
         setTimeout(function() {
-            addBotMessage(`Hi there! How can I help you today?`);
+            fetch("/chat/", {
+                method: "POST",
+                headers: {'Content-Type': 'application/json'}, 
+                body: JSON.stringify({message:"hello"})
+              }).then((res)  => res.json()).then((data) => addBotMessage(data["message"]))
         }, 800);
     }
     else {

@@ -1,7 +1,270 @@
-{% extends 'base.html' %}
-{% block title %}
-Index Page
-{% endblock title %}
-{% block content %}
-indx
-{% endblock content %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+    <title>Image Preprocessing</title>
+</head>
+<body>
+    <div class="fixed-nav-bar">
+        
+        <div class="navbar">
+            <div class="logo"><span>CTRLALT</span>Elite</div>
+            <nav>
+                <ul>
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div class="rela-block deer-section">
+        <div class="upload">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <input type="submit" value="Upload"  class="uploadBtn">
+                <input type="file" value="choose Images" name="file" class="database" accept="image/*" multiple>
+            </form>
+        </div>
+        <div class="video-container">
+            <video src="{% static 'polygonBG.mp4' %}" autoplay muted loop></video>
+        </div>
+    </div>
+
+<!--cards-->
+    <div class="wrapper">
+        <h1>FEATURES</h1>
+      
+        <div class="cols">
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(https://unsplash.it/500/500/)">
+                              <div class="inner">
+                                  <p>Diligord</p>
+                    <span>Lorem ipsum</span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="url(https://unsplash.it/511/511/)">
+                              <div class="inner">
+                                  <p>Rocogged</p>
+                    <span>Lorem ipsum</span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(https://unsplash.it/502/502/)">
+                              <div class="inner">
+                                  <p>Strizzes</p>
+                                    <span>Lorem ipsum</span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(https://unsplash.it/503/503/)">
+                              <div class="inner">
+                                  <p>Clossyo</p>
+                    <span>Lorem ipsum</span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(https://unsplash.it/504/504/">
+                              <div class="inner">
+                                  <p>Rendann</p>
+                    <span>Lorem ipsum</span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(https://unsplash.it/505/505/)">
+                              <div class="inner">
+                                  <p>Reflupper</p>
+                    <span>Lorem ipsum</span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(https://unsplash.it/506/506/)">
+                              <div class="inner">
+                                  <p>Acirassi</p>
+                    <span>Lorem ipsum</span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(https://unsplash.it/508/508/)">
+                              <div class="inner">
+                                  <p>Sohanidd</p>
+                    <span>Lorem ipsum</span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Alias cum repellat velit quae suscipit c.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+       </div>
+
+ <!-- 
+       <div class="rela-block second-section cover-before">
+        
+
+        <div class="big-floaty-image">
+            <p class="absolute-center-text">THE SKY!</p>
+        </div>
+    </div>
+    <div class="rela-block third-section cover-before">
+        <p class="absolute-center-text">Look at that concept art!<br><br>Dope stuff!</p>
+    </div>
+    <div class="rela-block fourth-section">
+        <p class="hover-pointer"></p>
+        <div class="rela-block color-square-container">
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+            <div class="color-changing-square"></div>
+        </div>
+        <div class="rela-block big-back-text-container">
+            <h1 class="big-back-text">THIS IS BOLD TEXT</h1>
+        </div>video section -->
+    </div>
+    <div class="rela-block footer">
+        <div class="rela-block social-buttons-container">
+            <div class="social-button facebook-button"></div>
+            <div class="social-button insta-button"></div>
+            <div class="social-button twitter-button"></div>
+            <div class="social-button pinterest-button"></div>
+        </div>
+        <div class="rela-block footer-links-container">
+            <div class="footer-flex-column">
+                <ul> Projects
+                    <li>Chillwave</li>
+                    <li>Gluten-free</li>
+                    <li>Kitsch Cardigan</li>
+                </ul>
+            </div>
+            <div class="footer-flex-column">
+                <ul> About us
+                    <li>Fingerstache</li>
+                    <li>Lumbersexual</li>
+                    <li>Lo-Fi Aesthitic</li>
+                </ul>
+            </div>
+            <div class="footer-flex-column">
+                <ul> Community
+                    <li>Kale Chips</li>
+                    <li>Church Key</li>
+                    <li>Longboarding</li>
+                </ul>
+            </div>
+            <div class="footer-flex-column">
+                <ul> Connect
+                    <li>Pinterest</li>
+                    <li>Etsy</li>
+                    <li>Blog Swag</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+
+    <script type="text/javascript">
+//changing nav bar on scroll
+var className = "inverted";
+var scrollTrigger = 550;
+
+window.onscroll = function() {
+  // We add pageYOffset for compatibility with IE.
+  if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
+    document.getElementsByClassName("navbar")[0].classList.add(className);
+  } else {
+    document.getElementsByClassName("navbar")[0].classList.remove(className);
+  }
+};
+
+
+   
+
+    </script>
+
+</body>
+</html>
