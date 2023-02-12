@@ -1,4 +1,4 @@
-let userMessage = document.querySelector('.user-message-input');
+let userMessage = document.querySelector('#user-message-input');
 let sendButton = document.querySelector('.send-button');
 let closeButton = document.querySelector('.close-button');
 let messageContainer = document.querySelector('.message-container');
@@ -72,6 +72,7 @@ function addBotMessage(message) {
 
 // event listener for the send button
 sendButton.addEventListener('click', function () {
+    message1 = userMessage.value;
     typingIndicator.style.display = 'none';
     addUserMessage();
     
@@ -81,7 +82,7 @@ sendButton.addEventListener('click', function () {
             fetch("/chat/", {
                 method: "POST",
                 headers: {'Content-Type': 'application/json'}, 
-                body: JSON.stringify({message:"hello"})
+                body: JSON.stringify({message:message1})
               }).then((res)  => res.json()).then((data) => addBotMessage(data["message"]))
         }, 800);
     }

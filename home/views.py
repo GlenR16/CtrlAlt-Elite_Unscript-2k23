@@ -22,7 +22,7 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tessera
 FaviconView = RedirectView.as_view(url='/static/favicon.ico', permanent=True)
 
 class IndexView(TemplateView):
-    template_name = "index.html"
+    template_name = "new.html"
     
     def post(self,request):
         prediction = []

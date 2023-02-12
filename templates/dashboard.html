@@ -17,7 +17,7 @@
         <div class="col col-2">Images</div>
         <div class="col col-3">Confidence</div>
         <div class="col col-4">Category</div>
-        <div class="col col-5">Download</div>
+        <div class="col col-5">OCR text</div>
       </li>
       <script>
         var xyValues = [];
@@ -33,8 +33,8 @@
         <div class="col col-2" data-label="Images">{{image.2}}</div>
         <div class="col col-3" data-label="Confidence">{{image.1}}</div>
         <div class="col col-4" data-label="Category">{{image.0}}</div>
-        <div class="col col-5" data-label="Download">
-          <textarea>{{image.3.ocr}}</textarea>
+        <div class="col col-5" data-label="OCR text">
+          <textarea class="andre">{{image.3.ocr}}</textarea>
         </div>
       </li>
       {% endfor %}
@@ -47,7 +47,6 @@
   
     <div class="widget2">
     <canvas id="myChart"></canvas>
-    {{gf}}
     
   
     <!-- <div class="widget3"> -->
@@ -92,7 +91,7 @@
           <div class="typing-dot"></div>
       </div>
       <div class="input-container">
-          <input class="user-message-input" type="text" oninput="onInput()" onkeydown = "if (event.keyCode === 13){enter()}">
+          <input id="user-message-input" class="user-message-input" type="text" oninput="onInput()" onkeydown = "if (event.keyCode === 13){enter()}">
           <button class="send-button" >Send</button>
       </div>
     </div>
@@ -102,7 +101,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
 </script>
 <script type="text/javascript">
-  console.log(xyValues);
   new Chart("myChart", {
     type: "bar",
     data: {

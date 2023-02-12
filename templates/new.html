@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <link rel='stylesheet' href="{% static 'new.css' %}">
+    <title>ImageIQ </title>
+</head>
+<body>
+    <div class="fixed-nav-bar">
+        
+        <div class="navbar">
+            <div class="logo"><span>CTRLALT</span>Elite</div>
+            <nav>
+                <ul>
+                    <li><a class="option Features" href="#">Discover</a></li>
+                    <li><a class="option home" href="#">ML Model</a></li>
+                    <li><a class="option About" href="#">About Us</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+    
+   
+
+     
+
+    <div class="rela-block deer-section">
+        <h1>Image<span>IQ</span></h1>
+        <p class="tagline" >Elevate Your OCR Game with Unmatched Quality Detection Accuracy</p>
+        <div class="main-image">
+            <img src="{% static 'mainImage.png' %}">
+            
+
+        </div>
+        
+        
+        
+                <!-- <div class="mainText">
+            Make 
+            <div id=flip>
+              <div><div>wOrK</div></div>
+              <div><div>lifeStyle</div></div>
+              <div><div>Everything</div></div>
+            </div>
+            AweSoMe! 
+
+          </div>   -->
+
+    <div class="upload">
+        <form action="/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <input type="submit" value="Upload" class="uploadBtn" >
+            <input type="file" name="file" value="choose Images" class="database" accept="image/*"  multiple required >
+            <!-- <label for="inputTag">
+                Chooce Images
+                <input type="file" id="inputTag">
+            </label> -->
+          </form>
+         </div>
+         <div class="video-container">
+            <!-- <video src="bg.mp4" autoplay muted loop></video> -->
+            
+        </div>
+    </div>
+    <img src="{% static 'person.png' %}" class="person">
+</div>
+
+    <!-- <div class="box-card"> 
+        
+        <img src="scan.png" class="bottom-left">
+        <img src="scan.png" class="bottom-right">
+        <img src="scan.png" class="top-left">
+        <img src="scan.png" class="top-right">
+
+      </div> -->
+
+
+    
+ 
+   
+
+<!--cards-->
+    <div class="wrapper">
+        <h1>FEATURES</h1>
+      
+        <div class="cols">
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(static/scanner.png) ;">
+                              <div class="inner">
+                                  <p>BULK UPLOAD</p>
+                    <span></span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                <p>This feature enables the efficient uploading of a large number of images in one go, making it easier to process and analyze large amounts of data.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(static/scanner.png) ;">
+                              <div class="inner">
+                                  <p>Image Classification</p>
+                    <span></span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>The feature allows for categorizing and labeling images based on their visual content, making it easier to categorize, manage, and analyze data.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(static/scanner.png) ;">
+                              <div class="inner">
+                                  <p>Personalized Dashboard</p>
+                    <span></span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>The personalized dashboard provides users with a visual representation of their data, allowing them to monitor, analyze, and manage their information.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(static/scanner.png) ;">
+                              <div class="inner">
+                                  <p>Chatbot Interface</p>
+                    <span></span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p> The chatbot interface allows users to interact with the system in a conversational manner, providing an intuitive and user-friendly way to access the system's functionalities.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(static/scanner.png) ;">
+                              <div class="inner">
+                                  <p>Data Visualization:</p>
+                    <span></span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>This feature provides users with graphical representations of their data, making it easier to understand and interpret complex information.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(static/scanner.png) ;">
+                              <div class="inner">
+                                  <p>Data Privacy</p>
+                    <span></span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>This feature ensures that all data processed by the OCR system is kept confidential and secure, protecting users' sensitive information.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front" style="background-image: url(static/scanner.png) ;">
+                              <div class="inner">
+                                  <p>Data Processing</p>
+                    <span></span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>Includes preprocessing steps required to convert raw image data into useful information, including image enhancement, noise reduction, and feature extraction.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col" ontouchstart="this.classList.toggle('hover');">
+                      <div class="container">
+                          <div class="front"  style="background-image: url(static/scanner.png);">
+                              <div class="inner">
+                                  <p>User Login:</p>
+                    <span></span>
+                              </div>
+                          </div>
+                          <div class="back">
+                              <div class="inner">
+                                  <p>This feature provides users with a secure login system, allowing them to access their personalized dashboard and keep track of their data.</p>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+       </div>
+
+       <div class="rela-block third-section cover-before">
+        <p class="absolute-center-text"> Machine Learning Model<br><br></p>
+    </div>
+    <div class="model">
+        <img src="{% static 'graph.jpeg' %}">
+        
+    
+    
+    </div>
+
+    </div>
+    <div class="rela-block footer">
+        <div class="rela-block social-buttons-container">
+            <div class="social-button facebook-button"></div>
+            <div class="social-button insta-button"></div>
+            <div class="social-button twitter-button"></div>
+            <div class="social-button pinterest-button"></div>
+        </div>
+        <div class="rela-block footer-links-container">
+            <div class="footer-flex-column">
+                <ul> ANDRE NAZARETH
+                    <li>ML MODEL</li>
+                   
+                </ul>
+            </div>
+            <div class="footer-flex-column">
+                <ul>GLEN RODRIGUES
+                    <li>Backend</li>
+                </ul>
+            </div>
+            <div class="footer-flex-column">
+                <ul>SACHI SHAH
+                    <li>Dashboard</li>
+                    <li>Chatbot</li>
+                </ul>
+            </div>
+            <div class="footer-flex-column">
+                <ul> GRACE PEREIRA
+                    <li>Frontend</li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+
+    <script type="text/javascript">
+//changing nav bar on scroll
+var className = "inverted";
+var scrollTrigger = 550;
+
+window.onscroll = function() {
+  // We add pageYOffset for compatibility with IE.
+  if (window.scrollY >= scrollTrigger || window.pageYOffset >= scrollTrigger) {
+    document.getElementsByClassName("navbar")[0].classList.add(className);
+  } else {
+    document.getElementsByClassName("navbar")[0].classList.remove(className);
+  }
+};
+
+//parallex
+$(window).scroll(function() {
+          var scroll = $(window).scrollTop();
+          console.log(scroll);
+          $("#parallex img").css({
+            width: 100 + scroll / 5 + "%"
+          });
+        });
+
+
+
+   
+
+    </script>
+
+</body>
+</html>
