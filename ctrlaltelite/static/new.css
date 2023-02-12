@@ -409,6 +409,15 @@ img.person {
             transform-style: preserve-3d;
 }
 
+.model2 {
+  width: 600px;
+  height:80%;
+  display: flex;
+  margin-left: 35%;
+  /* padding-right: 80%; */
+  justify-content: center;
+}
+
 .container .front{
     -webkit-transform: rotateY(0deg);
             transform: rotateY(0deg);
