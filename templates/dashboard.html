@@ -17,7 +17,7 @@
         <div class="col col-2">Images</div>
         <div class="col col-3">Confidence</div>
         <div class="col col-4">Category</div>
-        <!-- <div class="col col-1">Amount</div> -->
+        <div class="col col-5">Download</div>
       </li>
       <script>
         var xyValues = [];
@@ -33,6 +33,9 @@
         <div class="col col-2" data-label="Images">{{image.2}}</div>
         <div class="col col-3" data-label="Confidence">{{image.1}}</div>
         <div class="col col-4" data-label="Category">{{image.0}}</div>
+        <div class="col col-5" data-label="Download">
+          <textarea>{{image.3.ocr}}</textarea>
+        </div>
       </li>
       {% endfor %}
       <div id="pagination">
@@ -44,18 +47,19 @@
   
     <div class="widget2">
     <canvas id="myChart"></canvas>
+    {{gf}}
     
   
     <!-- <div class="widget3"> -->
     <div class="wrapper">
       <div id="cgood" class='container good' data-size="130" data-value="{{good}}" data-arrow="up">
-        <p>Good</P>
+        <p>Good</p>
       </div>
       <div id="cmoderate" class='container moderate' data-size="130" data-value="{{moderate}}" data-arrow="up">
-        <p>Moderate</P>
+        <p>Moderate</p><a href=""></a>
       </div>
       <div id="cpoor" class='container poor' data-size="130" data-value="{{poor}}" data-arrow="up">
-        <p>Poor</P>
+        <p>Poor</p>
       </div>
       </div>
       </div>

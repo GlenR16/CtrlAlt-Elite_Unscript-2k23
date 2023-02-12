@@ -9,8 +9,16 @@ from .chatbot.chatbot import message as MessageChatBot
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
+import os
+from zipfile import ZipFile
+from io import BytesIO
 from .assessment.assess import assessment
+from .models import UploadedFile
+import cv2
+import pytesseract
+import numpy
 # Create your views here.
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
 FaviconView = RedirectView.as_view(url='/static/favicon.ico', permanent=True)
 
 class IndexView(TemplateView):
@@ -20,11 +28,38 @@ class IndexView(TemplateView):
         prediction = []
         confidence = []
         files = request.FILES.getlist("file")
+        for i in UploadedFile.objects.filter(user=request.user.id):
+            try:
+                os.remove("./home/media/"+str(i.id))
+            except:
+                pass
+        
+        a = UploadedFile.objects.filter(user__id=request.user.id)
+        a.delete()
         for image in files:
             p,c = assessment(image)
+            newfile = UploadedFile(file=image)
+            newfile.save()
+            with open("./home/media/"+str(newfile.id), 'wb') as f:
+                for chunk in image.chunks():
+                    f.write(chunk)
+            if p == "Good":
+                img = cv2.imread("./home/media/"+str(newfile.id), cv2.COLOR_BGR2GRAY)
+                gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+                text = pytesseract.image_to_string(gray)
+                newfile.quality = p
+                newfile.ocr = text
+                newfile.save()
+            elif p == "Moderate":
+                text = None
+            else:
+                text = None
+            newfile = UploadedFile(file=image,quality=p,ocr=text)
+            newfile.save()
+            request.user.files.add(newfile)
             prediction.append(p)
             confidence.append(c)            
-        out = zip(prediction,confidence,files)
+        out = zip(prediction,confidence,files,UploadedFile.objects.filter(user__email=request.user.email))
         good = (prediction.count("Good")*100)/len(files)
         moderate = (prediction.count("Moderate")*100)/len(files)
         poor = (prediction.count("Poor")*100)/len(files)

@@ -17,5 +17,4 @@ def assessment(file):
     # Get the class with the highest predicted probability
     class_idx = np.argmax(prediction)
     # Print the prediction
-    print("Prediction:", classed[class_idx], "Confidence:", prediction[0, class_idx])
     return classed[class_idx],prediction[0, class_idx]
